@@ -12,8 +12,33 @@
     font-family: Arial;
   }
 
-  .card-title{
+  .card {
+    width: 80%;
+    margin:2%;
+    border-style: outset;
+  }
+  .card-header{
     background-color: var(--dark);
     color:var(--light);
-
   }
+
+  a {
+    color: var(--dark);
+    text-decoration: none;
+  }
+  a:hover .card{
+    background-color: #182c23;
+  }
+
+  nav a {
+    color: var(--light);
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+  }
+  
+  nav a:hover {
+    color: var(--secondary);
+    background-color: var(--dark);
+  }
+  

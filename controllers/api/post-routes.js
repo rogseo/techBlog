@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const { Post } = require('../../models');
+const withAuth=require('../../utils/withAuth')
 
 // CREATE new post
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
       const dbPostData = await Post.findAll();
       if(!dbPostData){
@@ -18,7 +19,7 @@ router.get('/', async (req, res) => {
   });
   module.exports = router;
 
-router.post('/', async (req, res) => {
+router.post('/',withAuth, async (req, res) => {
   try {
     const dbPostData = await Post.create({
       title: req.body.title,
