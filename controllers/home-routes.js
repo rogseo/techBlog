@@ -24,6 +24,16 @@ router.get('/', async(req, res)=>{
 
 router.get('/post/:id',async(req,res)=>{
     try{
+        const postData=await Post.findByPk(req.params.id,{
+            include:[{model:User}],
+        });
+        if(!postData){
+            res.status(404).json("no Found data");
+        }
+        const post=await postData.map((post)=>post.get({plain:true}));
+        res.status(200).render('post',{
+            post,
+        });
         
 
     }catch(err){
