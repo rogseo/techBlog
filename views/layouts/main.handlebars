@@ -13,12 +13,12 @@
         <header>
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">HOME</a>
+                    <a class="nav-link active" href="/">HOME</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">DASHBOARD</a>
+                    <a class="nav-link" href="/api/dashboard">DASHBOARD</a>
                 </li>
-                {{!-- {#if loggedIn}} --}}
+                {{!-- {{#if loggedIn}}  --}}
                 <li class="nav-item">
                     <a class="nav-link" href="/login">LOG IN</a>
                 </li>
@@ -28,10 +28,13 @@
                 </li>
             </ul>
 
+            <div class="jumbotron">
+                <h1 class="display-4">Tech Blog!</h1>
+            </div>
+
         </header>
         <main>
             {{{body}}}
-
         </main>
         {{!-- {{#if loggedIn}}
         <script src="/js/logout.js"></script>
