@@ -1,9 +1,14 @@
 {{#each posts as |post|}}
 <section class="card">
-    <a class="card-body" href="/post/{{id}}">
-        <h5 class="card-title">{{title}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{user.username}}</h6>
-        <p class="card-text">{{description}}</p>
+    <a href="/post/{{id}}">
+        <div class="card-header">
+            <h5 class="card-title">{{title}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{user.username}}</h6>    
+        </div>
+        <div class="card-body">
+            <p class="card-text">{{description}}</p>
+        </div>
+        <div class="card-footer text-muted">{{post_date}}</div>   
     </a>
 </section>
 {{/each}}
