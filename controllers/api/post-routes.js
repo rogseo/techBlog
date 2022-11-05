@@ -5,19 +5,23 @@ const withAuth=require('../../utils/withAuth')
 // CREATE new post
 router.get('/', withAuth, async (req, res) => {
     try {
-      const dbPostData = await Post.findAll();
+      const dbPostData = await Post.findAll({
+        where:{
+          user_id:req.session.user_id,
+        }
+        });
       if(!dbPostData){
-          res.json("no added");
+          res.json("no found data");
       }
-      else{
-          res.status(200).json(dbPostData);
-      }
+      const posts = dbPostData.map((post)=>post.get({ plain: true }));
+      res.status(200).render('dashboard', { posts,loggedIn: req.session.loggedIn});
+
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
     }
   });
-  module.exports = router;
+
 
 router.post('/',withAuth, async (req, res) => {
   try {

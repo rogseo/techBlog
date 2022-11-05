@@ -1,12 +1,12 @@
 [
     {
-      "title": "Music Near Me",
+      "title": "How To Use Sequelize with Node.js and MySQL",
       "description": "A mobile app that will send you notifications whenever a concert is playing in your area.",
       "post_date": "May 05, 2020"
 
     },
     {
-      "title": "The Ultimate Tech Quiz",
+      "title": "Configuration settings in Node with dotenv",
       "description": "A web app that will give users 10 new technical questions each day and track their progress in things like programming, cybersecurity, database architecture, and more!",
       "post_date": "May 30, 2020"
     },
