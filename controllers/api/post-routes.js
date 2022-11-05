@@ -13,6 +13,7 @@ router.get('/', withAuth, async (req, res) => {
       if(!dbPostData){
           res.json("no found data");
       }
+      console.log(dbPostData);
       const posts = dbPostData.map((post)=>post.get({ plain: true }));
       res.status(200).render('dashboard', { posts,loggedIn: req.session.loggedIn});
 
@@ -29,7 +30,7 @@ router.post('/',withAuth, async (req, res) => {
       title: req.body.title,
       description: req.body.description,
       post_date: req.body.post_date,
-      user_id: req.body.user_id,
+      user_id: req.session.user_id,
     });
     if(!dbPostData){
         res.json("no added");

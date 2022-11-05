@@ -1,10 +1,10 @@
 {{#each posts as |post|}}
 <section class="card">
         <div class="card-header">
-            <h5 class="card-title">{{post.title}}</h5>  
+            <h5 class="card-title">{{title}}</h5>  
         </div>
         <div class="card-body">
-            <p class="card-text">{{post.description}}</p>
+            <p class="card-text">{{description}}</p>
         </div>
         {{!-- partial handler will be added --}}
         <div class="card-footer text-muted">
@@ -22,6 +22,7 @@
 
 <form class="card form-group"> 
     <div class="card-body">
-        <button type="submit" class="btn btn-primary" id="add-post">Submit</button>  
+        <button class="btn btn-primary" id="add-post"><img src="./images/add_icon"> + ADD POST</button>  
     </div>
 </from>
+<script src="./js/script.js"></script>
