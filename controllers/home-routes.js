@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
         const posts = postData.map((post) => post.get({ plain: true }));
 
         res.status(200).render('homepage', {
-            posts,
+            posts,loggedIn: req.session.loggedIn
         });
 
     } catch (err) {
@@ -30,7 +30,7 @@ router.get('/post/:id', async (req, res) => {
             res.status(404).json("No Found data");
         }
         const post = postData.get({ plain: true });
-        res.status(200).render('post', { post });
+        res.status(200).render('post', { post,loggedIn: req.session.loggedIn});
 
     } catch (err) {
         res.status(500).json(err);
