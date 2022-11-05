@@ -26,10 +26,11 @@ router.get('/', withAuth, async (req, res) => {
 
 router.post('/',withAuth, async (req, res) => {
   try {
+    console.log(req.session.user_id);
     const dbPostData = await Post.create({
       title: req.body.title,
       description: req.body.description,
-      post_date: req.body.post_date,
+      // post_date: req.body.post_date,
       user_id: req.session.user_id,
     });
     if(!dbPostData){
@@ -42,5 +43,21 @@ router.post('/',withAuth, async (req, res) => {
     console.log(err);
     res.status(500).json(err);
   }
+});
+
+router.get("/:id",withAuth,async(req,res)=>{
+  const postData=await Post.findByPk(req.params.id);
+  const post=postData.get({plain:true});
+  res.status(200).render('editPost',{
+    post,
+    loggedIn: req.session.loggedIn,
+    user_id:req.session.user_id,
+  });
+
+})
+//if add post button click
+router.get('/add',withAuth,async(req,res)=>{
+  res.status(200).render('addPost');
+
 });
 module.exports = router;

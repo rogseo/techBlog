@@ -1,28 +1,14 @@
 {{#each posts as |post|}}
-<section class="card">
-        <div class="card-header">
-            <h5 class="card-title">{{title}}</h5>  
-        </div>
-        <div class="card-body">
-            <p class="card-text">{{description}}</p>
-        </div>
-        {{!-- partial handler will be added --}}
-        <div class="card-footer text-muted">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">comment1</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
-            </ul>   
-        </div>   
-        {{!--  --}}
-</section>
+
+<a href="/api/posts/{{id}}"><div class="card">{{title}}</div></a>
+
 {{/each}}
 
 
 
 <form class="card form-group"> 
     <div class="card-body">
-        <button class="btn btn-primary" id="add-post"><img src="./images/add_icon"> + ADD POST</button>  
+        <a class="btn btn-primary" id="add-post" href="/api/posts/add"><img src="./images/add_icon"> + ADD POST</a>  
     </div>
 </from>
 <script src="./js/script.js"></script>
