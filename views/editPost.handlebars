@@ -9,6 +9,41 @@
     <textarea class="form-control" id="add-description" rows="3">{{post.description}}</textarea>
   </div>
   <div class="form-group">
-    <button type="submit" class="btn btn-primary" id="edit-post">Edit</button>
+    <button type="submit" class="btn btn-primary" data-id="{{post.id}}" id="edit-post">Edit</button>
   </div>
 </form>
+
+<script>
+
+const addPostHandler = async (event) => {
+    event.preventDefault();
+    console.log(event.target.dataset.id);
+
+    const title = document.querySelector('#add-title').value;
+    const description = document.querySelector('#add-description').value;
+    var id=event.target.dataset.id;
+    var route=`/api/posts/${id}`;
+    console.log(route);
+
+    if (title && description) {
+        const response = await fetch(route, {
+            method: 'PUT',
+            body: JSON.stringify({ title, description }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+        console.log(response);
+
+        if (response.ok) {
+            alert('Successfully post');
+            document.location.replace('/api/posts');
+
+        } else {
+            alert('Failed to update.');
+        }
+    }
+};
+
+const editPostBtn = document.querySelector('#edit-post');
+editPostBtn.addEventListener('click', addPostHandler);
+
+</script>
