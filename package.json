@@ -11,8 +11,11 @@
     "type": "git",
     "url": "git+https://github.com/rogseo/techBlog.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "techblog",
+    "heroku"
+  ],
+  "author": "yeon",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/rogseo/techBlog/issues"
@@ -28,4 +31,5 @@
     "mysql2": "^2.3.3",
     "sequelize": "^6.25.3"
   }
+  
 }
