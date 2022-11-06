@@ -1,14 +1,14 @@
 {{#each posts as |post|}}
 
-<a href="/api/posts/{{id}}"><div class="card">{{title}}</div></a>
+<div class="post-list"><a href="/api/posts/{{id}}">{{title}}</a></div>
 
 {{/each}}
 
 
 
 <form class="card form-group"> 
-    <div class="card-body">
-        <a class="btn btn-primary" id="add-post" href="/api/posts/add"><img src="./images/add_icon.png"> + ADD POST</a>  
-    </div>
+    
+    <a class="btn btn-primary" id="add-post" href="/api/posts/add"> + ADD POST</a>  
+
 </from>
 <script src="./js/script.js"></script>

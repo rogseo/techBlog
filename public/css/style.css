@@ -40,6 +40,7 @@
   a {
     color: var(--dark);
     text-decoration: none;
+    font-size: 20px;
     
   }
   a:hover .card{
@@ -60,12 +61,18 @@
     background-color: var(--dark);
   }
   
-  .card-text {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-            line-clamp: 2; 
-    -webkit-box-orient: vertical;
+
+
+ .post-list{
+  padding:20px;
+  font-size: 30px;
+  margin: 30px;
+  background-color: var(--primary);
+  border-radius: 10px;
+  color:var(--light);
+ }
+ .post-list{
+  text-decoration: none;
+  color: var(--light);
  }
  

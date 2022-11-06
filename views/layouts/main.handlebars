@@ -12,19 +12,19 @@
     </head>
     <body>
         <header>
-            <ul class="nav">
-                <li class="nav-item">
+            <ul class="nav row justify-content-start">
+                <li class="nav-item col-2">
                     <a class="nav-link active" href="/">HOME</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item col-2" >
                     <a class="nav-link" href="/api/posts">DASHBOARD</a>
                 </li>
                 {{#if loggedIn}}
-                <li class="nav-item">
-                    <button class="nav-link" id="logout">LogOut</button>
+                <li class="nav-item col-2">
+                    <a class="nav-link" id="logout">LogOut</a>
                 </li>
                 {{else}}
-                <li class="nav-item">
+                <li class="nav-item col-2">
                     <a class="nav-link" href="/login">LogIn</a>
                 </li>
                 {{/if}}
