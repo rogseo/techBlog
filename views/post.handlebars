@@ -2,7 +2,7 @@
 <section class="card">
         <div class="card-header">
             <h5 class="card-title">{{post.title}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">posted by <strong>{{post.user.username}}</strong></h6>    
+            <h6 class="card-subtitle mb-2 text-muted">posted by <strong>posted by {{post.user.username}}</strong></h6>    
         </div>
         <div class="card-body">
             <p class="card-text">{{post.description}}</p>
@@ -10,9 +10,9 @@
         {{!-- partial handler will be added --}}
         <div class="card-footer text-muted">
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">comment1</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
+                {{#each post.comment as |comment|}}
+                <li class="list-group-item">{{comment.text}}</li>    
+              {{/each}}
             </ul>   
         </div>   
         {{!--  --}}
@@ -25,11 +25,43 @@
         <label for="comment">Comment:</label>
     </div> 
     <div class="card-body">
-        <textarea class="form-control" id="comment" rows="3"></textarea>    
+        <textarea class="form-control" id="comment" rows="3" data-id="{{post.id}}"></textarea>    
     </div>
     <div class="card-footer">
-        <button type="submit" class="btn btn-primary" id="comment-submit">Submit</button>
+        <button type="submit" class="btn btn-primary" id="comment-submit" >Submit</button>
     </div>
 </from>
 
-<script src="./js/script.js"></script>
+{{!-- <script src="./js/script.js"></script> --}}
+<script>
+console.log("Hello");
+const addCommentHandler = async (event) => {
+    event.preventDefault();
+
+    const text = document.querySelector("#comment").value;
+    console.log(document.querySelector("#comment"));
+    const post_id=document.querySelector("#comment").dataset.id;
+    console.log(comment,post_id);
+
+    if(comment){
+        const response = await fetch('/api/comments',{
+            method:'POST',
+            body: JSON.stringify({text,post_id
+            }),
+            headers: {'Content-Type': 'application/json'},
+        });
+        console.log(response);
+        if(response.ok){
+            alert('success');
+            document.location.replace(`/post/${post_id}`);
+        }
+        else{
+            alert('Failed to post');
+        }
+    }
+};
+
+const addCommentBtn = document.querySelector('#comment-submit');
+addCommentBtn.addEventListener('click',addCommentHandler);
+
+</script>

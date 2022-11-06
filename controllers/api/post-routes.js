@@ -6,9 +6,18 @@ const withAuth = require('../../utils/withAuth')
 router.get('/', withAuth, async (req, res) => {
   try {
     const dbPostData = await Post.findAll({
-      where: {
+      // include:[
+      //   {
+      //     model:Comment,
+      //     attributes: [
+      //       'id',
+      //       'text',
+      //       'post_id',
+      //     ],
+      //   },],
+      where : {
         user_id: req.session.user_id,
-      }
+      },
     });
     if (!dbPostData) {
       res.json("no found data");
@@ -30,7 +39,6 @@ router.post('/', withAuth, async (req, res) => {
     const dbPostData = await Post.create({
       title: req.body.title,
       description: req.body.description,
-      // post_date: req.body.post_date,
       user_id: req.session.user_id,
     });
     if (!dbPostData) {
@@ -85,7 +93,9 @@ router.put("/:id", withAuth, async (req, res) => {
 
 //if add post button click
 router.get('/add', withAuth, async (req, res) => {
-  res.status(200).render('addPost');
+  console.log("this is add route");
+  res.status(200).render('addPost'); // need to be solved
+
 
 });
 module.exports = router;

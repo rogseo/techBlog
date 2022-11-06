@@ -25,20 +25,21 @@ router.get('/', withAuth, async (req, res) => {
   });
   module.exports = router;
 
-router.post('/',withAuth, async (req, res) => {
+  //debug reason withAut removed
+  router.post('/', async (req, res) => {
   try {
-    const dbCommentData = await Comment.create({
-      text: req.body.text,
-      post_date: req.body.post_date,
-      post_id: req.body.post_id,
-      user_id: req.body.user_id,
+    console.log(req.session.user_id);
+    const newComment = await Comment.create({
+      ...req.body,
+      user_id: req.session.user_id,
     });
-    if(!dbCommentData){
-        res.json("no added");
-    }
-    else{
-        res.status(200).json(dbCommentData);
-    }
+    res.status(200).json(newComment);
+    // if(!dbCommentData){
+    //     res.json("no added");
+    // }
+    // else{
+    //     res.status(200).redirect(`/api/posts/${post_id}`);
+    // }
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

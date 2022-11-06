@@ -23,15 +23,17 @@ router.get('/',async (req, res) => {
     }
 });
 //Can access to post data only when logged in.
-router.get('/post/:id', withAuth, async (req, res) => {
+router.get('/post/:id',/*withAuth,*/ async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id, {
-            include: [{ model: User }],
+            include: [{model:User}],
         });
         if (!postData) {
             res.status(404).json("No Found data");
         }
+        console.log(postData);
         const post = postData.get({ plain: true });
+        console.log(post);
         res.status(200).render('post', { post,loggedIn: req.session.loggedIn});
 
     } catch (err) {
