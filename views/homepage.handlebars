@@ -1,14 +1,14 @@
 {{#each posts as |post|}}
-<section class="card">
-    <a href="/post/{{id}}">
+
+<a href="/post/{{id}}">
+    <section class="card">
         <div class="card-header">
             <h5 class="card-title">{{title}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{user.username}}</h6>    
+            <h6 class="card-subtitle mb-2 text-muted">posted by{{user.username}} on {{format_date updatedAt}} </h6>    
         </div>
         <div class="card-body">
-            <p class="card-text">{{description}}</p>
-        </div>
-        <div class="card-footer text-muted">{{format_date updatedAt}}</div>   
-    </a>
-</section>
+            <p class="card-text">{{description}}</p> 
+    </section>
+</a>
+
 {{/each}}

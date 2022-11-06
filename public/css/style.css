@@ -10,28 +10,46 @@
   }
   body {
     font-family: Arial;
+    background-color: var(--light);
+  }
+  header {
+    padding: 40px,10px;
+    text-align: center;
+    background: var(--primary);
+    color: var(--light)
+  }
+  .jumbotron-custom{
+    background-color: var(--secondary);
+    color:var(--light);
   }
 
   .card {
     width: 80%;
     margin:2%;
     border-style: outset;
+    border: 1px solid var(--dark);
   }
   .card-header{
-    background-color: var(--dark);
+    background-color: var(--primary);
     color:var(--light);
+  }
+  nav{
+    justify-content: center;
   }
 
   a {
     color: var(--dark);
     text-decoration: none;
+    
   }
   a:hover .card{
-    background-color: #182c23;
+    text-decoration: none;
+    box-shadow: 10px 10px 5px var(--secondary);
   }
 
   nav a {
     color: var(--light);
+    font-size: 40px;
     padding: 14px 20px;
     text-decoration: none;
     text-align: center;

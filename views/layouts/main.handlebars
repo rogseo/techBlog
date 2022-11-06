@@ -21,7 +21,7 @@
                 </li>
                 {{#if loggedIn}}
                 <li class="nav-item">
-                    <button class="nav-link btn-no-style" id="logout">LogOut</button>
+                    <button class="nav-link" id="logout">LogOut</button>
                 </li>
                 {{else}}
                 <li class="nav-item">
@@ -29,13 +29,12 @@
                 </li>
                 {{/if}}
             </ul>
-
-            <div class="jumbotron">
-                <h1 class="display-4">Tech Blog!</h1>
-            </div>
-
         </header>
+        
         <main>
+            <div class="jumbotron jumbotron-custom">
+                <h4 class="display-4">Tech Blog!</h4>
+            </div>
             {{{body}}}
         </main>
         {{#if loggedIn}}
