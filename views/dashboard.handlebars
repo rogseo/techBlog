@@ -1,9 +1,12 @@
 {{#each posts as |post|}}
 
-<div class="post-list"><a href="/api/posts/{{id}}">{{title}}</a></div>
+<a href="/api/posts/{{id}}">
+    <section class="card">
+        <div class="card-header"><h4 class="card-title">{{title}}</h4></div>
+    </section>
+</a>
 
 {{/each}}
-
 
 
 <form class="card form-group"> 

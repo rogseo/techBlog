@@ -1,21 +1,25 @@
 
 <section class="card">
         <div class="card-header">
-            <h5 class="card-title">{{post.title}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">posted by <strong>{{post.user.username}}</strong></h6>    
+            <h3 class="card-title">{{post.title}}</h3>
+            <p class="card-subtitle mb-2 text-muted">posted by <strong>{{post.user.username}}</strong></p>    
         </div>
         <div class="card-body">
             <p class="card-text">{{post.description}}</p>
         </div>
-        {{!-- partial handler will be added --}}
         <div class="card-footer text-muted">
+            <h6>Comment :</h6>
             <ul class="list-group list-group-flush">
-                {{#each post.comment as |comment|}}
-                <li class="list-group-item">{{comment.text}}</li>    
-              {{/each}}
-            </ul>   
+                {{#each post.comments as |comment|}}                          
+                <li class="list-group-item">
+                    <div class="d-flex w-100 justify-content-between">
+                        <p class="mb-1">{{comment.text}}</p>
+                        <small>{{format_date comment.createdAt}}</small>
+                    </div>
+                </li>    
+                {{/each}}
+            </ul> 
         </div>   
-        {{!--  --}}
 </section>
 
 

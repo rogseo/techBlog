@@ -1,20 +1,23 @@
 const router = require('express').Router();
-const { Post } = require('../../models');
+const { Post, Comment, User } = require('../../models');
 const withAuth = require('../../utils/withAuth')
 
 // CREATE new post
 router.get('/', withAuth, async (req, res) => {
   try {
     const dbPostData = await Post.findAll({
-      // include:[
-      //   {
-      //     model:Comment,
-      //     attributes: [
-      //       'id',
-      //       'text',
-      //       'post_id',
-      //     ],
-      //   },],
+      include:[
+        {
+          model:Comment,
+          attributes: [
+            'id',
+            'text',
+            'post_id',
+          ],
+        },{
+          model:User,
+          attributes:['id',],
+        },],
       where : {
         user_id: req.session.user_id,
       },
@@ -91,10 +94,23 @@ router.put("/:id", withAuth, async (req, res) => {
   }
 });
 
+router.delete("/:id", withAuth, async (req, res) => {
+  try {
+    const deleteData = await Post.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.status(200).redirect('/api/posts');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 //if add post button click
 router.get('/add', withAuth, async (req, res) => {
   console.log("this is add route");
-  res.status(200).render('addPost'); // need to be solved
+  res.render('addPost'); // need to be solved
 
 
 });

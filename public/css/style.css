@@ -60,19 +60,18 @@
     color: var(--secondary);
     background-color: var(--dark);
   }
-  
-
 
  .post-list{
+  text-decoration: none;
   padding:20px;
-  font-size: 30px;
   margin: 30px;
   background-color: var(--primary);
   border-radius: 10px;
   color:var(--light);
+ 
  }
- .post-list{
-  text-decoration: none;
-  color: var(--light);
+ .login-card{
+  border-radius: 10px;
+  margin : 10px;
  }
  

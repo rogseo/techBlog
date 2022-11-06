@@ -1,4 +1,4 @@
-const { Post, User } = require('../models');
+const { Post, User, Comment } = require('../models');
 const router = require('express').Router();
 const withAuth = require('../utils/withAuth');
 
@@ -26,7 +26,7 @@ router.get('/',async (req, res) => {
 router.get('/post/:id',/*withAuth,*/ async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id, {
-            include: [{model:User}],
+            include: [{model:User},{model:Comment}],
         });
         if (!postData) {
             res.status(404).json("No Found data");
