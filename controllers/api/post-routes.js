@@ -106,7 +106,7 @@ router.delete("/:id", withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+ 
 //if add post button click
 router.get('/add', withAuth, async (req, res) => {
   console.log("this is add route");

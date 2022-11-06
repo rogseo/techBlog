@@ -2,7 +2,12 @@
 
 <a href="/api/posts/{{id}}">
     <section class="card">
-        <div class="card-header"><h4 class="card-title">{{title}}</h4></div>
+        <div class="card-header">
+            <div class="d-flex w-100 justify-content-between">
+                <h4 class="mb-1 card-title">{{title}}</h4>
+                <small>{{format_date createdAt}}</small>
+            </div>
+        </div>
     </section>
 </a>
 
