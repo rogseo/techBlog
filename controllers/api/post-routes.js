@@ -81,14 +81,13 @@ router.put("/:id", withAuth, async (req, res) => {
         },
       });
 
-    if (!postData[0]) {
+    if (!postData) {
       res.status(404).json({ message: 'No post with this id!' });
       return;
     }
-    const post = postData.get({ plain: true });
-    res.status(200).render('post', {
-      post,
-    });
+    // const post = postData.get({ plain: true });
+    res.status(200).render('post');
+
   } catch (err) {
     res.status(500).json(err);
   }
@@ -101,17 +100,19 @@ router.delete("/:id", withAuth, async (req, res) => {
         id: req.params.id,
       },
     });
-    res.status(200).redirect('/api/posts');
+
+    res.status(200).json(deleteData);
   } catch (err) {
     res.status(500).json(err);
   }
 });
  
-//if add post button click
-router.get('/add', withAuth, async (req, res) => {
-  console.log("this is add route");
-  res.render('addPost'); // need to be solved
+// //if add post button click
+// router.get('/add', withAuth, async (req, res) => {
+
+//   console.log("this is add route");
+//   res.render('addPost'); // need to be solved
 
 
-});
+// });
 module.exports = router;

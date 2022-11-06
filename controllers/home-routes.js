@@ -49,4 +49,13 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
+//if add post button click
+router.get('/add', withAuth, async (req, res) => {
+  
+    console.log("this is add route");
+    res.render('addPost'); // need to be solved
+  
+  
+  });
+
 module.exports = router;
