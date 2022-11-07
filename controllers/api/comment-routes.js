@@ -26,7 +26,7 @@ router.get('/', withAuth, async (req, res) => {
   module.exports = router;
 
   //debug reason withAut removed
-  router.post('/', withAuth,async (req, res) => {
+  router.post('/', withAuth, async (req, res) => {
   try {
     console.log(req.session.user_id);
     const newComment = await Comment.create({
