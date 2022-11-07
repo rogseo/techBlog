@@ -26,7 +26,7 @@ router.get('/', withAuth, async (req, res) => {
   module.exports = router;
 
   //debug reason withAut removed
-  router.post('/', async (req, res) => {
+  router.post('/', withAuth,async (req, res) => {
   try {
     console.log(req.session.user_id);
     const newComment = await Comment.create({
@@ -34,12 +34,6 @@ router.get('/', withAuth, async (req, res) => {
       user_id: req.session.user_id,
     });
     res.status(200).json(newComment);
-    // if(!dbCommentData){
-    //     res.json("no added");
-    // }
-    // else{
-    //     res.status(200).redirect(`/api/posts/${post_id}`);
-    // }
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
