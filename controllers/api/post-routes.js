@@ -16,7 +16,7 @@ router.get('/', withAuth, async (req, res) => {
           ],
         },{
           model:User,
-          attributes:['id',],
+          attributes:['id','username'],
         },],
       where : {
         user_id: req.session.user_id,
