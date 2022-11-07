@@ -90,7 +90,7 @@ THEN I am signed out of the site
 [ViewDemoVideo](https://watch.screencastify.com/v/Cr3hHx2Q5x5ykmhKmfgU)
 
 ## Heroku
-[deployed heroku](https://techblogg1.herokuapp.com/)
+[deployed heroku](https://tech-blogg-story.herokuapp.com/)
 
 ## Questions
 if you have more question, reach me out below.
