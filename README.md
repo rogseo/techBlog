@@ -8,6 +8,7 @@ A blog web site to publish articles, blog posts, and comments on other's post.
 - [Installation](#installation)
 - [Usage](#usage)
 - [Demonstration](#demonstration)
+- [Heroku](#heroku)
 - [Questions](#questions)
 
 ## Technology
@@ -87,6 +88,9 @@ THEN I am signed out of the site
 
 ## Demonstration
 [ViewDemoVideo](https://watch.screencastify.com/v/Cr3hHx2Q5x5ykmhKmfgU)
+
+## Heroku
+[deployed heroku](https://techblogg1.herokuapp.com/)
 
 ## Questions
 if you have more question, reach me out below.
